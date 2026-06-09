@@ -8,11 +8,14 @@ import subprocess
 import sys
 from pathlib import Path
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from common.run_context import create_new_run, record_pipeline_run, resolve_run_root
 from common.usage_costs import estimate_usage_cost
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent
 RUNS_DIR = PROJECT_ROOT / "data"
 SHARED_PAPER_DIR = PROJECT_ROOT / "data" / "papers"
 DEFAULT_SOURCE_RUN_ID = "run_20260526_032051"
@@ -230,7 +233,12 @@ def _write_summary(run_root: Path) -> None:
     else:
         env["ONTOLOGYM_REPORT_EXTRA_RUNS"] = run_root.name
     env["ONTOLOGYM_REPORT_OUTPUT"] = str(run_root / "experiment_summary.txt")
-    subprocess.run([sys.executable, "summarize_experiment_results.py"], cwd=PROJECT_ROOT, env=env, check=True)
+    subprocess.run(
+        [sys.executable, "experiments/summarize_experiment_results.py"],
+        cwd=PROJECT_ROOT,
+        env=env,
+        check=True,
+    )
 
 
 if __name__ == "__main__":

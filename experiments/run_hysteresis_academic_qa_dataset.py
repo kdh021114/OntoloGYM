@@ -21,6 +21,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 try:
     from openai import OpenAI
 except ImportError:  # pragma: no cover
@@ -30,7 +34,6 @@ from common.project_config import load_env_file, load_project_config
 from common.usage_logging import log_openai_usage
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent
 DATA_DIR = PROJECT_ROOT / "data" / "hysteresis_ablation_manual_20260604"
 ASSET_MANIFEST = DATA_DIR / "assets" / "hysteresis_assets.jsonl"
 QA_DIR = DATA_DIR / "qa"

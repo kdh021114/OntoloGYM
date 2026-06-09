@@ -7,10 +7,13 @@ import subprocess
 import sys
 from pathlib import Path
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from common.usage_costs import estimate_usage_cost
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent
 RUNS_DIR = PROJECT_ROOT / "data"
 DEFAULT_RUN_ID = "run_20260526_032051"
 DEFAULT_MODEL = "gpt-5.4-nano"
@@ -92,7 +95,7 @@ def main() -> None:
 
 
 def _write_summary() -> None:
-    subprocess.run([sys.executable, "summarize_experiment_results.py"], cwd=PROJECT_ROOT, check=True)
+    subprocess.run([sys.executable, "experiments/summarize_experiment_results.py"], cwd=PROJECT_ROOT, check=True)
 
 
 if __name__ == "__main__":

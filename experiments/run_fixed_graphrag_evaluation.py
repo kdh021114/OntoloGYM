@@ -9,10 +9,13 @@ import sys
 from pathlib import Path
 from typing import Any
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from common.usage_costs import USD_PER_MILLION
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent
 DATA_DIR = PROJECT_ROOT / "data"
 FIXED_MODEL = os.getenv("ONTOLOGYM_FIXED_EVAL_MODEL", "gpt-5.4-mini").strip() or "gpt-5.4-mini"
 _default_phase_prefix = f"fixed_graphrag_global_{FIXED_MODEL.replace('.', '').replace('-', '')}"

@@ -31,6 +31,10 @@ python run_qa_evaluation.py
 python run_kg_visualization.py
 ```
 
+Historical thesis experiments, model-comparison runs, and ablation repro
+scripts live in `experiments/`. Those scripts usually depend on local
+`data/<run_id>/` artifacts and are not part of the default pipeline surface.
+
 All runners read `configs/` through `config.py`; no command-line arguments are
 required. `run_pipeline_sequence.py` creates a new `data/<run_id>/` folder
 and runs the configured order. Individual runners reuse the active run recorded

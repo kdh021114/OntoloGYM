@@ -9,10 +9,15 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from common.run_context import initialize_manifest, record_pipeline_run
 from common.usage_costs import estimate_usage_cost
