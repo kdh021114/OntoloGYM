@@ -34,9 +34,8 @@ def _env_float(name: str, default: float) -> float:
 # 1. 실행과 입출력
 # =============================================================================
 
-# 이번 실험에서는 KG 답변 성능을 실제로 봐야 하므로 실행합니다.
-QA_EVAL_RUN = _env_bool("ONTOLOGYM_QA_EVAL_RUN", True)
-QA_EVAL_DRY_RUN = _env_bool("ONTOLOGYM_QA_EVAL_DRY_RUN", False)
+QA_EVAL_RUN = _env_bool("ONTOLOGYM_QA_EVAL_RUN", False)
+QA_EVAL_DRY_RUN = _env_bool("ONTOLOGYM_QA_EVAL_DRY_RUN", True)
 
 _dataset_override = os.getenv("ONTOLOGYM_QA_EVAL_DATASET_PATH", "").strip()
 QA_EVAL_DATASET_PATH = Path(_dataset_override) if _dataset_override else QA_OUTPUT_DATASET_PATH

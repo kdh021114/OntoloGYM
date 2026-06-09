@@ -28,7 +28,6 @@ RUN_OUTPUT_MODE = "run"
 RUNS_DIR = PROJECT_ROOT / "data"
 
 # None이면 data/_active_run.txt에 적힌 run을 이어 쓰고, 없으면 새로 만듭니다.
-# 특정 run을 다시 열고 싶으면 예: RUN_ID = "run_20260526_153000"
 RUN_ID = None
 
 # True로 바꾸면 다음 실행 때 새 run 폴더를 만들고 active run으로 지정합니다.
@@ -54,6 +53,5 @@ RUN_OUTPUT_DIR = resolve_run_root(
 USAGE_LOG_PATH = RUN_OUTPUT_DIR / "logs" / "openai_usage.jsonl"
 os.environ.setdefault("ONTOLOGYM_USAGE_LOG", os.fspath(USAGE_LOG_PATH))
 
-# 이번 실험의 누적 비용 상한입니다. run_refine_experiment.py가 usage 로그를 읽어 보고합니다.
 EXPERIMENT_BUDGET_USD = 70.0
 os.environ.setdefault("ONTOLOGYM_BUDGET_USD", str(EXPERIMENT_BUDGET_USD))

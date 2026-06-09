@@ -39,8 +39,7 @@ def _env_float(name: str, default: float) -> float:
 # 1. 실행과 입출력
 # =============================================================================
 
-# 이번 실험에서는 실제 relation KG를 만들어야 하므로 실행합니다.
-RELATION_RUN_AUGMENTATION = True
+RELATION_RUN_AUGMENTATION = False
 
 RELATION_PHASE = os.getenv("ONTOLOGYM_RELATION_PHASE", "").strip()
 RELATION_DATA_DIR = RUN_OUTPUT_DIR / ("relation_augmentation" if not RELATION_PHASE else f"relation_augmentation_{RELATION_PHASE}")
@@ -67,7 +66,7 @@ RELATION_MAX_COMPLETION_TOKENS = 4096
 RELATION_REASONING_EFFORT = None
 
 # True면 LLM을 호출하지 않고 evidence chunk 수와 후보 term 로딩만 확인합니다.
-RELATION_DRY_RUN = False
+RELATION_DRY_RUN = True
 
 
 # =============================================================================

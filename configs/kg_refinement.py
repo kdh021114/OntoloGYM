@@ -18,7 +18,7 @@ def _env_float(name: str, default: float) -> float:
     return float(value) if value else default
 
 
-KG_REFINE_RUN = True
+KG_REFINE_RUN = False
 _kg_refine_output_override = os.getenv("ONTOLOGYM_KG_REFINE_OUTPUT_DIR", "").strip()
 KG_REFINE_OUTPUT_DIR = (
     RUN_OUTPUT_DIR / _kg_refine_output_override
