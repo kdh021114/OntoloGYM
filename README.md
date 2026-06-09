@@ -3,6 +3,25 @@
 This folder keeps the extraction workflows separated while letting them share
 paper PDFs and one environment file.
 
+## Pipeline Overview
+
+OntoloGYM starts from a research-paper corpus, builds an ontology KG with
+OntoGen, augments relations with evidence-aware predicates, and pairs the KG
+with AirQA-style QA generation, evaluation, KG refinement, and preference-data
+construction.
+
+![OntoloGYM pipeline](assets/ontologym_pipeline.png)
+
+## KG Example
+
+The generated KG links paper-derived concepts, methods, materials, conditions,
+and results. The visualization below shows a full KG view with a zoomed-in
+subgraph example.
+
+![Generated ontology KG example](assets/kg_example.png)
+
+## Repository Layout
+
 - `qa_extractor/`: copied AirQA extractor code plus the support modules it uses.
 - `ontogen/`: copied OntoGen code, excluding generated examples, notebooks,
   caches, and bundled sample data.
