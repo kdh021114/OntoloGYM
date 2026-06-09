@@ -1,0 +1,9 @@
+fuzzywuzzy
+huggingface_hub
+openai
+pdf2image
+pymupdf
+PyPDF2
+tabulate
+tiktoken
+tqdm

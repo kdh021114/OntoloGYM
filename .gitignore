@@ -1,0 +1,31 @@
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/
+
+# Runtime logs, temporary files, and generated artifacts
+logs/
+tmp/
+*.log
+
+# Large local datasets and experiment outputs.
+# Keep data/README.md tracked so collaborators know where to place inputs.
+data/*
+!data/README.md
+
