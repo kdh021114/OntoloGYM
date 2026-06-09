@@ -18,7 +18,7 @@ The generated KG links paper-derived concepts, methods, materials, conditions,
 and results. The visualization below shows a full KG view with a zoomed-in
 subgraph example.
 
-![Generated ontology KG example](assets/kg_example.png)
+<img src="assets/kg_example.png" alt="Generated ontology KG example" width="560">
 
 ## Repository Layout
 
